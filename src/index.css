@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-rose-black: #171514;
+    --color-ivory: #F7F3EC;
+    --color-antique-rose: #A76570;
+    --color-dusty-blush: #D9B1AE;
+    --color-burgundy: #672D39;
+    --color-antique-gold: #B08A57;
+    --color-warm-grey: #E8E2D8;
+    --color-charcoal: #3C3C3C;
+
+    --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-ivory);
+    color: var(--color-rose-black);
+    font-family: var(--font-body);
+  }
+
+  body {
+    overflow-x: hidden;
+    position: relative;
+    background-color: var(--color-ivory);
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Luxury Editorial Typography */
+.font-editorial {
+  font-family: var(--font-heading);
+}
+
+.font-sans {
+  font-family: var(--font-body);
+}
+
+/* Subtle Film Grain Texture Overlay */
+.bg-grain {
+  background-image: radial-gradient(rgba(176, 138, 87, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-grain-dark {
+  background-image: radial-gradient(rgba(217, 177, 174, 0.05) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Thin Gold Lines */
+.border-gold {
+  border-color: rgba(176, 138, 87, 0.28);
+}
+
+.border-gold-strong {
+  border-color: rgba(176, 138, 87, 0.65);
+}
+
+.border-rose {
+  border-color: rgba(167, 101, 112, 0.3);
+}
+
+/* Shimmering Gold Shine Effect on Primary Buttons */
+.gold-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: gold-sweep 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes gold-sweep {
+  0% {
+    left: -80%;
+  }
+  30%, 100% {
+    left: 140%;
+  }
+}
+
+/* Animated Underline Effect for Links */
+.hover-underline-animation {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-antique-gold);
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-underline-animation:hover::after,
+.hover-underline-animation.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Rose Text Selection */
+::selection {
+  background-color: #D9B1AE;
+  color: #171514;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F3EC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B08A57;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A76570;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
