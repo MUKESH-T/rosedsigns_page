@@ -45,7 +45,6 @@ export const Navbar: React.FC = () => {
     { label: 'About', href: '/#about', sectionId: 'about' },
     { label: 'Services', href: '/services', sectionId: 'services' },
     { label: 'Projects', href: '/#projects', sectionId: 'projects' },
-    { label: 'Contact', href: '/contact', sectionId: 'contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: typeof navLinks[0]) => {
